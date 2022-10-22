@@ -1,17 +1,18 @@
-import logo from "./logo.png";
 import "./App.css";
-import { useState } from "react";
-import { send } from "emailjs-com";
-import Verification from "./Verification";
-import "./Verification.css";
-import styled from "styled-components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./Pages/Register/Register";
+import Task from "./Pages/Task/Task";
 
 function App() {
   return (
-    <div className="Verification">
-      <Verification />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path={"/"} element={<Register />} />
+        <Route exact path={"/tasks"} element={<Task />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
