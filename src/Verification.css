@@ -1,0 +1,16 @@
+Button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 24px;
+  gap: 10px;
+
+  position: absolute;
+  width: 380px;
+  height: 55px;
+  left: 24px;
+  top: 581px;
+
+  border: 1px solid #110eaf;
+  border-radius: 8px;
+}
