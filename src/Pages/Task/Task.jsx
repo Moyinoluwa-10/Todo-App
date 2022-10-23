@@ -8,8 +8,24 @@ import DesignImage from "../../assets/svgs/design.svg";
 import StudyImage from "../../assets/svgs/study.svg";
 import TeamworkImage from "../../assets/svgs/teamwork.svg";
 import ResetImage from "../../assets/svgs/reset.svg";
+import { Link } from "react-router-dom";
+// import {} from 'axios'
+// const axios = require("axios");
 
 const Task = () => {
+  const handleClick = () => {
+    const url = "https://users-todoapp.herokuapp.com/api/v1/todos";
+    // const url = "https://jsonplaceholder.typicode.com/todos/1";
+    fetch(url, {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3OTg1OGY2LTEzMWEtNDNmNC04MmQzLTBhZDg5MGM1ZDliZiIsImVtYWlsIjoiamVycnl3aXprbGF5MUBnbWFpbC5jb20iLCJpYXQiOjE2NjY0NDgzNTksImV4cCI6MTY2NjQ1MTk1OX0.VY2wyLWzrrg6JGya2wQW_PzHf-y3QnedTbWMfxEdB2k",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  };
+
   return (
     <div className="tasks">
       <div className="section-header">
@@ -29,15 +45,18 @@ const Task = () => {
       <div className="section-search">
         <input type="text" placeholder="Search List" />
       </div>
+      <button onClick={handleClick}>Click me</button>
 
       <div className="section-task">
-        <Tasktype TaskImage={AllImage} TaskName={"All"} TaskNumber={1} />
+        <Link to={"/tasks/all"}>
+          <Tasktype TaskImage={AllImage} TaskName={"All"} TaskNumber={1} />
+        </Link>
+        <Tasktype TaskImage={MusicImage} TaskName={"General"} TaskNumber={3} />
         <Tasktype TaskImage={WorkImage} TaskName={"Work"} TaskNumber={2} />
-        <Tasktype TaskImage={MusicImage} TaskName={"Music"} TaskNumber={3} />
         <Tasktype TaskImage={DesignImage} TaskName={"Design"} TaskNumber={4} />
         <Tasktype
           TaskImage={TeamworkImage}
-          TaskName={"Teamwork"}
+          TaskName={"Shopping"}
           TaskNumber={5}
         />
         <Tasktype TaskImage={StudyImage} TaskName={"Study"} TaskNumber={6} />

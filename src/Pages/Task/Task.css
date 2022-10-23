@@ -71,3 +71,8 @@
     gap: 15px 20px;
     margin-bottom: 16px;
 }
+
+.tasks .section-task a {
+    display: block;
+    width: 100%;
+}
