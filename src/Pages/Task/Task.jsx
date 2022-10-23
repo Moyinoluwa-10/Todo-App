@@ -9,21 +9,19 @@ import StudyImage from "../../assets/svgs/study.svg";
 import TeamworkImage from "../../assets/svgs/teamwork.svg";
 import ResetImage from "../../assets/svgs/reset.svg";
 import { Link } from "react-router-dom";
-// import {} from 'axios'
-// const axios = require("axios");
 
 const Task = () => {
   const handleClick = () => {
-    const url = "https://users-todoapp.herokuapp.com/api/v1/todos";
+    // const url = "https://users-todoapp.herokuapp.com/api/v1/todos";
     // const url = "https://jsonplaceholder.typicode.com/todos/1";
-    fetch(url, {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3OTg1OGY2LTEzMWEtNDNmNC04MmQzLTBhZDg5MGM1ZDliZiIsImVtYWlsIjoiamVycnl3aXprbGF5MUBnbWFpbC5jb20iLCJpYXQiOjE2NjY0NDgzNTksImV4cCI6MTY2NjQ1MTk1OX0.VY2wyLWzrrg6JGya2wQW_PzHf-y3QnedTbWMfxEdB2k",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+    // fetch(url, {
+    //   headers: {
+    //     Authorization:
+    //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3OTg1OGY2LTEzMWEtNDNmNC04MmQzLTBhZDg5MGM1ZDliZiIsImVtYWlsIjoiamVycnl3aXprbGF5MUBnbWFpbC5jb20iLCJpYXQiOjE2NjY0NDgzNTksImV4cCI6MTY2NjQ1MTk1OX0.VY2wyLWzrrg6JGya2wQW_PzHf-y3QnedTbWMfxEdB2k",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json));
   };
 
   return (

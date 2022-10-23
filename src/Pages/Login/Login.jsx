@@ -1,20 +1,16 @@
 import React from "react";
-import "./Register.css";
+import "./Login.css";
 import RegisterImage from "../../assets/images/register.png";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const validate = (values) => {
     const errors = {};
-
-    if (!values.name) {
-      errors.name = "Please fill out this field";
-    }
 
     if (!values.email) {
       errors.email = "Please fill out this field";
@@ -37,7 +33,6 @@ const Register = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -66,12 +61,14 @@ const Register = () => {
                 progress: undefined,
                 theme: "colored",
               });
-              setTimeout(() => {
-                navigate("/login");
-              }, 1500);
+              navigate("/");
             } else if (result.message === "User Already Exists") {
               toast.error(
-                JSON.stringify("User Already Exists, Please Log In", null, 2),
+                JSON.stringify(
+                  "You don't have an account, Please Register",
+                  null,
+                  2
+                ),
                 {
                   position: "top-right",
                   autoClose: 5000,
@@ -83,9 +80,6 @@ const Register = () => {
                   theme: "colored",
                 }
               );
-              setTimeout(() => {
-                navigate("/login");
-              }, 1500);
             } else {
               toast.error(JSON.stringify("An error occured", null, 2), {
                 position: "top-right",
@@ -105,26 +99,12 @@ const Register = () => {
   });
 
   return (
-    <div className="register">
+    <div className="login">
       <div className="image-container">
         <img src={RegisterImage} alt="Group1-logo" />
       </div>
       <div>
         <form onSubmit={formik.handleSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              name="name"
-              placeholder="Input name"
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-              required
-            />
-            {formik.touched.name && formik.errors.name ? (
-              <div className="error">{formik.errors.name}</div>
-            ) : null}
-          </div>
           <div className="form-group">
             <input
               type="text"
@@ -171,12 +151,12 @@ const Register = () => {
         </form>
       </div>
       <div className="link-box">
-        <Link to="/login" className="footLink">
-          Already have an account? Log In
+        <Link to="/register" className="footLink">
+          Don't have an account? Register
         </Link>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Login;

@@ -63,18 +63,18 @@ const Alltask = () => {
     //   .then((response) => response.json())
     //   .then((result) => console.log(result))
     //   .catch((err) => console.log(err));
-    const url = "https://users-todoapp.herokuapp.com/api/v1/todos";
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhNjFhMGI5LWM4YzktNDJmYy05NzA4LTFjNTA5NGYyNmIzYSIsImVtYWlsIjoid2FsZXR1cm5lckB5YWhvby5jb20iLCJpYXQiOjE2NjY0NTgyMjksImV4cCI6MTY2NjQ2MTgyOX0.L7R0AMT2i2G-fSi14sTyv0o4E8zbuIehsxvVlZ2HML0",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
+    // const url = "https://users-todoapp.herokuapp.com/api/v1/todos";
+    // fetch(url, {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization:
+    //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhNjFhMGI5LWM4YzktNDJmYy05NzA4LTFjNTA5NGYyNmIzYSIsImVtYWlsIjoid2FsZXR1cm5lckB5YWhvby5jb20iLCJpYXQiOjE2NjY0NTgyMjksImV4cCI6MTY2NjQ2MTgyOX0.L7R0AMT2i2G-fSi14sTyv0o4E8zbuIehsxvVlZ2HML0",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) => console.log(result))
+    //   .catch((err) => console.log(err));
     // const url = "https://users-todoapp.herokuapp.com/api/v1/todos";
     // fetch(url, {
     //   method: "POST",
