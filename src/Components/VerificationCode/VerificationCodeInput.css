@@ -1,0 +1,9 @@
+.verificationCodeInput {
+  gap: 1rem;
+}
+.verificationCodeInput .input {
+  width: 50px;
+text-align: center;
+  border: 1px solid #1511d2;
+  border-radius: 5px;
+}
