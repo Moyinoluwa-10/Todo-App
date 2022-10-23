@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Tasklist.css";
-import AllImage from "../../assets/svgs/allblue.svg";
-import DeleteImage from "../../assets/svgs/delete.svg";
+import AllImage from "../../Assets/svgs/allblue.svg";
+import DeleteImage from "../../Assets/svgs/delete.svg";
 
 const Alltask = () => {
   const [data, setData] = useState([]);

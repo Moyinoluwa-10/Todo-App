@@ -1,6 +1,6 @@
 import React from "react";
 import "./Register.css";
-import RegisterImage from "../../assets/images/register.png";
+import RegisterImage from "../../Assets/Images/register.png";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

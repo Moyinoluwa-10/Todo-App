@@ -1,13 +1,13 @@
 import React from "react";
 import "./Task.css";
 import Tasktype from "../../Components/Tasktype/Tasktype";
-import AllImage from "../../assets/svgs/all.svg";
-import WorkImage from "../../assets/svgs/work.svg";
-import MusicImage from "../../assets/svgs/music.svg";
-import DesignImage from "../../assets/svgs/design.svg";
-import StudyImage from "../../assets/svgs/study.svg";
-import TeamworkImage from "../../assets/svgs/teamwork.svg";
-import ResetImage from "../../assets/svgs/reset.svg";
+import AllImage from "../../Assets/svgs/all.svg";
+import WorkImage from "../../Assets/svgs/work.svg";
+import MusicImage from "../../Assets/svgs/music.svg";
+import DesignImage from "../../Assets/svgs/design.svg";
+import StudyImage from "../../Assets/svgs/study.svg";
+import TeamworkImage from "../../Assets/svgs/teamwork.svg";
+import ResetImage from "../../Assets/svgs/reset.svg";
 import { Link } from "react-router-dom";
 
 const Task = () => {
