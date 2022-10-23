@@ -19,8 +19,9 @@ function App() {
           <Route exact path={"/register"} element={<Register />} />
           <Route exact path={"/login"} element={<Login />} />
           <Route exact path={"/tasks/all"} element={<Alltask />} />
-                  <Route element={<ProtectedRoutes />}>
-                  <Route exact path={"/"} element={<Task />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route exact path={"/"} element={<Task />} />
+          </Route>
                   <Route exact path={"/tasks/all"} element={<Alltask />} />
         </Routes>
       </Router>
