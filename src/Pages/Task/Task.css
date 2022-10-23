@@ -38,6 +38,10 @@
     width: 35px;
 }
 
+.tasks .section-header img {
+    cursor: pointer;
+}
+
 .tasks .section-search {
     padding: 40px 0;
     display: flex;
@@ -75,4 +79,6 @@
 .tasks .section-task a {
     display: block;
     width: 100%;
+    text-decoration: none;
+    color: white;
 }

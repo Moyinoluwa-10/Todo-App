@@ -4,6 +4,7 @@ import Register from "./Pages/Register/Register";
 import Task from "./Pages/Task/Task";
 import Alltask from "./Pages/Tasklist/Alltask";
 import Login from "./Pages/Login/Login";
+import ProtectedRoutes from "./Components/ProtectedRoutes/ProtectedRoutes";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <Routes>
         <Route exact path={"/register"} element={<Register />} />
         <Route exact path={"/login"} element={<Login />} />
-        <Route exact path={"/"} element={<Task />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route exact path={"/"} element={<Task />} />
+        </Route>
         <Route exact path={"/tasks/all"} element={<Alltask />} />
       </Routes>
     </Router>

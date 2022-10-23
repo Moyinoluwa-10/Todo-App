@@ -39,7 +39,7 @@ const Login = () => {
     validate,
     onSubmit: () => {
       setTimeout(() => {
-        const url = "https://users-todoapp.herokuapp.com/api/v1/users/";
+        const url = "https://users-todoapp.herokuapp.com/api/v1/users/login";
         fetch(url, {
           method: "POST",
           headers: {
@@ -50,8 +50,8 @@ const Login = () => {
           .then((response) => response.json())
           .then((result) => {
             console.log(result);
-            if (result.message === "User created") {
-              toast.success(JSON.stringify("Signup successful", null, 2), {
+            if (result.message === "User logged in successfully") {
+              toast.success(JSON.stringify("Login successful", null, 2), {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: true,
@@ -61,14 +61,14 @@ const Login = () => {
                 progress: undefined,
                 theme: "colored",
               });
-              navigate("/");
-            } else if (result.message === "User Already Exists") {
+              const user = JSON.stringify(result);
+              sessionStorage.setItem("user", user);
+              setTimeout(() => {
+                navigate("/");
+              }, 1500);
+            } else if (result.message === "Incorrect Details") {
               toast.error(
-                JSON.stringify(
-                  "You don't have an account, Please Register",
-                  null,
-                  2
-                ),
+                JSON.stringify("Email or password is incorrect", null, 2),
                 {
                   position: "top-right",
                   autoClose: 5000,
@@ -107,12 +107,13 @@ const Login = () => {
         <form onSubmit={formik.handleSubmit}>
           <div className="form-group">
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Input email"
               onChange={formik.handleChange}
               value={formik.values.email}
               onBlur={formik.handleBlur}
+              autoComplete={"email"}
             />
             {formik.touched.email && formik.errors.email ? (
               <div className="error">{formik.errors.email}</div>
@@ -120,12 +121,13 @@ const Login = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder="Input password"
               onChange={formik.handleChange}
               value={formik.values.password}
               onBlur={formik.handleBlur}
+              autoComplete={"current-password"}
             />
             {formik.touched.password && formik.errors.password ? (
               <div className="error">{formik.errors.password}</div>
@@ -133,7 +135,7 @@ const Login = () => {
           </div>
 
           <button className="btn" type="submit">
-            Get Started
+            Log In
           </button>
 
           <ToastContainer
@@ -150,6 +152,7 @@ const Login = () => {
           />
         </form>
       </div>
+
       <div className="link-box">
         <Link to="/register" className="footLink">
           Don't have an account? Register
