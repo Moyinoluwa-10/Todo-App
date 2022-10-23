@@ -119,7 +119,7 @@ const Register = () => {
               onChange={formik.handleChange}
               value={formik.values.name}
               onBlur={formik.handleBlur}
-              required
+              autoComplete={"name"}
             />
             {formik.touched.name && formik.errors.name ? (
               <div className="error">{formik.errors.name}</div>
@@ -127,12 +127,13 @@ const Register = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Input email"
               onChange={formik.handleChange}
               value={formik.values.email}
               onBlur={formik.handleBlur}
+              autoComplete={"email"}
             />
             {formik.touched.email && formik.errors.email ? (
               <div className="error">{formik.errors.email}</div>
@@ -140,12 +141,13 @@ const Register = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder="Input password"
               onChange={formik.handleChange}
               value={formik.values.password}
               onBlur={formik.handleBlur}
+              autoComplete={"email"}
             />
             {formik.touched.password && formik.errors.password ? (
               <div className="error">{formik.errors.password}</div>
