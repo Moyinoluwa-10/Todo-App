@@ -1,0 +1,66 @@
+.tasklist .section-top {
+    width: 100%;
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.tasklist .section-bottom {
+    padding: 50px 20px;
+}
+
+.tasklist .section-task-details img {
+    width: 30px;
+    height: 30px;
+}
+
+.tasklist .section-task-details h1 {
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    margin: 5px 0;
+    color: #110EAF;
+}
+
+.tasklist .section-task-details p {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #110EAF;
+}
+
+.tasklist .section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 40px 0;
+}
+
+.tasklist .section-task {
+    background-color: #110EAF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tasklist .section-task p {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.tasklist .section-task h2 {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+    font-style: normal;
+    font-weight: 600;
+    margin: 5px 0;
+}
