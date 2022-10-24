@@ -10,7 +10,7 @@ import ProtectedRoutes from "./Components/ProtectedRoutes/ProtectedRoutes";
 
 function App() {
   return (
-    <div class="container">
+    <div className="container">
       <Router>
         <Routes>
           <Route exact path={"/tasks"} element={<Task />} />

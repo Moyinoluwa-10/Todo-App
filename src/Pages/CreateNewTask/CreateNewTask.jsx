@@ -67,7 +67,6 @@ const CreateNewTask = () => {
       ...userInput,
     };
     console.log(newTaskData);
-    localStorage.setItem(...userInput, newTaskData.current.value);
   };
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
@@ -107,6 +106,7 @@ const CreateNewTask = () => {
               <Form.Label>Title</Form.Label>
               <Form.Control
                 type="text"
+                value={userInput.enteredTitle}
                 placeholder="Title"
                 onChange={titleChangeHandler}
               />
@@ -114,6 +114,7 @@ const CreateNewTask = () => {
             <Form.Control
               type="text"
               placeholder="description"
+              value={userInput.enteredDescription}
               className="w-md-100  description"
               onChange={descriptionChangeHandler}
             />
@@ -132,12 +133,13 @@ const CreateNewTask = () => {
           <button
             type="button"
             className="btn btn-primary d-flex justify-content-start align-items-center gap-2 text-"
-            htmlFor="date"
+            htmlFor="datetime"
           >
             <MdOutlineDateRange />
             <Form.Control
-              name="date"
-              type="date"
+              name="datetime"
+              type="datetime-local"
+              value={userInput.enteredDate}
               title="Choose your color"
               className="bg-primary border-0 text-white"
               onChange={dateChangeHandler}
@@ -152,6 +154,7 @@ const CreateNewTask = () => {
             <Form.Control
               type="text"
               title="Add your notes"
+              value={userInput.enteredNote}
               placeholder="Add note"
               className="bg-primary border-0 text-white"
               onChange={noteChangeHandler}
@@ -166,6 +169,7 @@ const CreateNewTask = () => {
             <Form.Select
               aria-label="Default select example"
               className="bg-primary border-0 text-white"
+              value={userInput.enteredCategory}
               onChange={categoryChangeHandler}
             >
               <option value="">Category</option>
@@ -187,6 +191,7 @@ const CreateNewTask = () => {
             <div className="text">Voice to text</div>
           </button>
         </div>
+
         {windowSize.innerWidth < 500 ? (
           <Add />
         ) : (
