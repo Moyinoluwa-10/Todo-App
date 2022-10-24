@@ -36,7 +36,7 @@ const Alltask = () => {
         })
         .catch((err) => console.log(err));
     }, 1000);
-  }, [data]);
+  }, []);
 
   // console.log(data);
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const Alltask = () => {
         <div>
           <p className="date">{data.due_date.split("T")[0]}</p>
           <h2 className="title">{data.title}</h2>
-          <p className="time">16:00</p>
+          <p className="time">{data.due_date.slice(11, 16)}</p>
         </div>
         <div>
           <img
@@ -86,7 +86,7 @@ const Alltask = () => {
       body: JSON.stringify({
         title: "Workout",
         description: "Go to the gym",
-        due_date: "2022-10-26",
+        due_date: "2022-09-28T16:31",
       }),
     })
       .then((response) => response.json())
@@ -129,10 +129,11 @@ const Alltask = () => {
           <div>
             <img src={AllImage} alt="task-type" />
             <h1>All</h1>
-            <p>23 Tasks</p>
+            <p>{data.length} Tasks</p>
           </div>
         </div>
         <button onClick={handleClick}>Click me</button>
+
         <div className="section-list">{xyz}</div>
       </div>
     </div>
