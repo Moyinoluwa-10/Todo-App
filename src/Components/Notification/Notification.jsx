@@ -14,7 +14,7 @@ const Notification = () => {
   return (
     <div className="position-absolute top-50 end-0 mx-3">
       <Button
-        className="shadow p-3 mb-5 rounded"
+        className="shadow primaryBg p-3 mb-5 rounded"
         variant="primary"
         onClick={handleShow}
       >
