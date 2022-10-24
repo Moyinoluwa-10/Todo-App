@@ -18,55 +18,18 @@ const CreateNewTask = () => {
     // createdDate: "",
   });
 
-  const titleChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredTitle: event.target.value,
+  // state Storage
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setUserInput((prev) => {
+      return { ...prev, [name]: value };
     });
-    console.log(event.target.value);
   };
-  const descriptionChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredDescription: event.target.value,
-    });
-    console.log(event.target.value);
-  };
-  const dateChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredDate: event.target.value,
-    });
-    console.log(event.target.value);
-  };
-  const noteChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredNote: event.target.value,
-    });
-    console.log(event.target.value);
-  };
-  const categoryChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredCategory: event.target.value,
-    });
-    console.log(event.target.value);
-  };
-  // const createdDateHandler = (event) => {
-  //   setUserInput({
-  //     ...userInput, createdDate:new Date()
-  //   });
-  //   console.log(event.toDateString);
 
-  // };
-
+  // state Output
   const submitHandler = (e) => {
     e.preventDefault();
-    const newTaskData = {
-      ...userInput,
-    };
-    console.log(newTaskData);
+    console.log(userInput);
   };
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
@@ -101,22 +64,25 @@ const CreateNewTask = () => {
       >
         <div className="top">
           <h3 className="fw-semibold">What are you planing?</h3>
-          <div className="inputs d-flex flex-column gap-3">
+          <div className="inputs d-flex flex-column gap-1">
             <div>
               <Form.Label>Title</Form.Label>
               <Form.Control
                 type="text"
-                value={userInput.enteredTitle}
+                name="enteredTitle"
                 placeholder="Title"
-                onChange={titleChangeHandler}
+                // onChange={titleChangeHandler}
+                onChange={changeHandler}
+                className="shadow mb-2 rounded"
               />
             </div>
             <Form.Control
               type="text"
-              placeholder="description"
-              value={userInput.enteredDescription}
-              className="w-md-100  description"
-              onChange={descriptionChangeHandler}
+              placeholder="Description"
+              name="enteredDescription"
+              className="w-md-100  descriptionStyling shadow mb-2 rounded"
+              // onChange={descriptionChangeHandler}
+              onChange={changeHandler}
             />
           </div>
         </div>
@@ -124,7 +90,11 @@ const CreateNewTask = () => {
         <div className="bottomButtons d-flex flex-column gap-2">
           <button
             type="button"
-            className="btn btn-primary d-flex justify-content-start align-items-center gap-2 text-white"
+            className={
+              windowSize.innerWidth < 500
+                ? "primaryBg btn text-white d-flex justify-content-start align-items-center gap-2 shadow rounded"
+                : "btn primaryText d-flex justify-content-start align-items-center gap-2 shadow rounded"
+            }
           >
             <HiOutlineBell />
             <div className="text">Alarm</div>
@@ -132,45 +102,71 @@ const CreateNewTask = () => {
 
           <button
             type="button"
-            className="btn btn-primary d-flex justify-content-start align-items-center gap-2 text-"
+            className={
+              windowSize.innerWidth < 500
+                ? "primaryBg btn btn-primary primaryBg d-flex justify-content-start text-white align-items-center gap-2 shadow rounded"
+                : "btn d-flex primaryText justify-content-start align-items-center gap-2 shadow rounded"
+            }
             htmlFor="datetime"
           >
             <MdOutlineDateRange />
             <Form.Control
-              name="datetime"
               type="datetime-local"
-              value={userInput.enteredDate}
+              name="enteredDate"
               title="Choose your color"
-              className="bg-primary border-0 text-white"
-              onChange={dateChangeHandler}
+              className={
+                windowSize.innerWidth < 500
+                  ? "primaryBg btn btn-primary primaryBg d-flex justify-content-start text-white align-items-center gap-2"
+                  : "btn d-flex justify-content-start align-items-center gap-2"
+              }
+              // onChange={dateChangeHandler}
+              onChange={changeHandler}
             />
           </button>
 
           <button
             type="button"
-            className="btn btn-primary d-flex justify-content-start align-items-center gap-2 text-"
+            className={
+              windowSize.innerWidth < 500
+                ? "primaryBg btn btn-primary primaryBg d-flex justify-content-start text-white align-items-center gap-2 shadow rounded"
+                : "btn d-flex primaryText justify-content-start align-items-center gap-2 shadow rounded"
+            }
           >
             <MdOutlineEditCalendar />
             <Form.Control
               type="text"
               title="Add your notes"
-              value={userInput.enteredNote}
+              name="enteredNote"
               placeholder="Add note"
-              className="bg-primary border-0 text-white"
-              onChange={noteChangeHandler}
+              className={
+                windowSize.innerWidth < 500
+                  ? "primaryBg btn btn-primary primaryBg d-flex justify-content-start text-white align-items-center gap-2"
+                  : "btn d-flex primaryText justify-content-start align-items-center gap-2"
+              }
+              // onChange={noteChangeHandler}
+              onChange={changeHandler}
             />
           </button>
 
           <button
             type="button"
-            className="btn btn-primary d-flex justify-content-start align-items-center gap-2 "
+            className={
+              windowSize.innerWidth < 500
+                ? "primaryBg btn btn-primary primaryBg d-flex justify-content-start text-white align-items-center gap-2 shadow rounded"
+                : "btn d-flex primaryText justify-content-start align-items-center gap-2 shadow rounded"
+            }
           >
             <FiTag />
             <Form.Select
               aria-label="Default select example"
-              className="bg-primary border-0 text-white"
-              value={userInput.enteredCategory}
-              onChange={categoryChangeHandler}
+              className={
+                windowSize.innerWidth < 500
+                  ? "primaryBg btn btn-primary primaryBg d-flex justify-content-start text-white align-items-center gap-2"
+                  : "btn d-flex primaryText justify-content-start align-items-center gap-2"
+              }
+              name="enteredCategory"
+              // onChange={categoryChangeHandler}
+              onChange={changeHandler}
             >
               <option value="">Category</option>
               <option value="Work">Work</option>
@@ -185,7 +181,11 @@ const CreateNewTask = () => {
 
           <button
             type="button"
-            className="btn btn-primary d-flex justify-content-start align-items-center gap-2 "
+            className={
+              windowSize.innerWidth < 500
+                ? "primaryBg btn btn-primary primaryBg d-flex justify-content-start text-white align-items-center gap-2 shadow rounded"
+                : "btn d-flex primaryText justify-content-start align-items-center gap-2 shadow rounded"
+            }
           >
             <RiVoiceprintLine />
             <div className="text">Voice to text</div>
@@ -193,10 +193,15 @@ const CreateNewTask = () => {
         </div>
 
         {windowSize.innerWidth < 500 ? (
-          <Add />
+          
+            <Add />
         ) : (
           <button
-            className="btn btn-primary d-flex justify-content-center align-items-center gap-2 "
+            className={
+              windowSize.innerWidth < 500
+                ? "primaryBg btn btn-primary primaryBg d-flex justify-content-center text-white align-items-center gap-2 shadow rounded"
+                : "btn d-flex primaryText justify-content-center align-items-center gap-2 shadow rounded"
+            }
             type="submit"
             // onClick={createdDateHandler}
           >
