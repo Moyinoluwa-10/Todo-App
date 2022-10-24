@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Task.css";
 import Tasktype from "../../Components/Tasktype/Tasktype";
+import Add from "../../Components/Add/Add";
 import AllImage from "../../assets/svgs/all.svg";
 // import WorkImage from "../../assets/svgs/work.svg";
 // import MusicImage from "../../assets/svgs/music.svg";
@@ -61,6 +62,8 @@ const Task = () => {
   //     });
   // };
 
+  
+
   return (
     <div className="tasks">
       <div className="section-header">
@@ -106,6 +109,9 @@ const Task = () => {
         /> */}
         {/* <Tasktype TaskImage={StudyImage} TaskName={"Study"} TaskNumber={6} /> */}
       </div>
+      <Link to={"/create-task"}>
+        <Add />
+      </Link>
     </div>
   );
 };
