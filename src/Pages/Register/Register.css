@@ -2,6 +2,17 @@
     padding: 100px 20px;
 }
 
+.register .title h1 {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: center;
+    color: #110eaf;
+    margin-bottom: 50px;
+}
+
 .register .image-container {
     display: flex;
     align-items: center;

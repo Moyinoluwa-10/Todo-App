@@ -1,0 +1,27 @@
+.add {
+    position: fixed;
+    right: 0;
+    bottom: 0%;
+    background-image: url(../../assets/svgs/plusbg.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 110px;
+    background-size: cover;
+    background-position: top center;
+}
+
+.add .btn-cont {
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+}
+
+.add .btn-add {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #110EAF;
+    outline: none;
+    border: none;
+}

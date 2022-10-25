@@ -1,3 +1,7 @@
+.tasklist {
+    padding-top: 90px;
+}
+
 .tasklist .section-top {
     width: 100%;
     height: 70px;
@@ -7,6 +11,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF;
 }
 
 .tasklist .section-top img {
@@ -64,6 +72,7 @@
     line-height: 17px;
     font-style: normal;
     font-weight: 400;
+    margin: 0;
 }
 
 .tasklist .section-task h2 {
@@ -75,6 +84,14 @@
     margin: 5px 0;
 }
 
+.tasklist .section-task .change {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .tasklist .section-task img {
     cursor: pointer;
+    width: 20px;
+    height: 23px;
 }

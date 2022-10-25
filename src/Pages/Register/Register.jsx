@@ -106,6 +106,9 @@ const Register = () => {
 
   return (
     <div className="register">
+      <div className="title">
+        <h1>Create an Account</h1>
+      </div>
       <div className="image-container">
         <img src={RegisterImage} alt="Group1-logo" />
       </div>

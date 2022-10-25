@@ -37,7 +37,7 @@ const Task = () => {
           }
         })
         .catch((err) => console.log(err));
-    }, 1000);
+    }, 500);
   }, []);
 
   const [data, setData] = useState([]);
@@ -61,8 +61,6 @@ const Task = () => {
   //       console.log(json.message);
   //     });
   // };
-
-  
 
   return (
     <div className="tasks">

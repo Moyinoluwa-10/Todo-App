@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./Tasklist.css";
 import AllImage from "../../assets/svgs/allblue.svg";
 import DeleteImage from "../../assets/svgs/delete.svg";
+import EditImage from "../../assets/svgs/pen.svg";
 import BackImage from "../../assets/svgs/right.svg";
 import DotImage from "../../assets/svgs/dotmenu.svg";
 import { Link, useNavigate } from "react-router-dom";
+import Add from "../../Components/Add/Add";
 
 const Alltask = () => {
   const [data, setData] = useState([]);
@@ -35,8 +37,8 @@ const Alltask = () => {
           }
         })
         .catch((err) => console.log(err));
-    }, 1000);
-  }, []);
+    }, 500);
+  }, [data]);
 
   // console.log(data);
   const navigate = useNavigate();
@@ -54,7 +56,7 @@ const Alltask = () => {
       .catch((err) => console.log(err));
   };
 
-  const xyz = data?.map((data, key) => {
+  const todoItems = data?.map((data, key) => {
     return (
       <div className="section-task" key={key}>
         <div>
@@ -62,14 +64,25 @@ const Alltask = () => {
           <h2 className="title">{data.title}</h2>
           <p className="time">{data.due_date.slice(11, 16)}</p>
         </div>
-        <div>
-          <img
-            src={DeleteImage}
-            alt="delete-icon"
-            onClick={() => {
-              handleDelete(data.id);
-            }}
-          />
+        <div className="change">
+          <div>
+            <img
+              src={EditImage}
+              alt="edit-icon"
+              onClick={() => {
+                handleDelete(data.id);
+              }}
+            />
+          </div>
+          <div>
+            <img
+              src={DeleteImage}
+              alt="delete-icon"
+              onClick={() => {
+                handleDelete(data.id);
+              }}
+            />
+          </div>
         </div>
       </div>
     );
@@ -132,9 +145,11 @@ const Alltask = () => {
             <p>{data.length} Tasks</p>
           </div>
         </div>
-        <button onClick={handleClick}>Click me</button>
 
-        <div className="section-list">{xyz}</div>
+        <div className="section-list">{todoItems}</div>
+        <Link to={"/create-task"}>
+          <Add />
+        </Link>
       </div>
     </div>
   );

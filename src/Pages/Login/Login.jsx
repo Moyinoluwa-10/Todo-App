@@ -98,29 +98,15 @@ const Login = () => {
     },
   });
 
-  const handleClick = () => {
-    // console.log("hello");
-    // fetch("https://jsonplaceholder.typicode.com/todos/33", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     name: "John Doe",
-    //     email: "john@typicode.com",
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((result) => console.log(result))
-    //   .catch((err) => console.log(err));
-  };
-
   return (
     <div className="login">
+      <div className="title">
+        <h1>Login to your account</h1>
+      </div>
+
       <div className="image-container">
         <img src={RegisterImage} alt="Group1-logo" />
       </div>
-      <button onClick={handleClick}>Click me</button>
 
       <div>
         <form onSubmit={formik.handleSubmit}>

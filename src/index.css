@@ -11,19 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-:root{
-  --primary:#110EAF; 
+
+:root {
+  --primary: #110EAF;
 }
-.primaryBg{
+
+.primaryBg {
   background-color: var(--primary) !important;
-  border: 1px solid  !important;
+  border: 1px solid !important;
 }
-.primaryText{
+
+.primaryText {
   color: var(--primary) !important;
 }
-.descriptionStyling{
+
+.descriptionStyling {
   height: 100px;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -33,4 +38,8 @@ code {
 body {
   margin: 0;
   padding: 0;
+}
+
+.container {
+  --bs-gutter-x: 0rem !important;
 }
