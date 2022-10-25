@@ -2,16 +2,27 @@ import React, { useEffect, useState } from "react";
 import "./Tasklist.css";
 import AllImage from "../../assets/svgs/allblue.svg";
 import DeleteImage from "../../assets/svgs/delete.svg";
-import EditImage from "../../assets/svgs/pen.svg";
+import EditImage from "../../assets/svgs/edit.svg";
 import BackImage from "../../assets/svgs/right.svg";
 import DotImage from "../../assets/svgs/dotmenu.svg";
 import { Link, useNavigate } from "react-router-dom";
 import Add from "../../Components/Add/Add";
-// import { useFormik } from "formik";
+import { useFormik } from "formik";
 //
 const Alltask = () => {
   const [data, setData] = useState([]);
+  const [edit, setEdit] = useState({
+    id: "2d8dbf71-c54a-480c-be2e-5e0cbf8541a2",
+    user_id: "e4c2acd4-fdfd-426c-827c-b16ac3deebb3",
+    title: "Workout",
+    description: "Go to the gym",
+    status: "Pending",
+    due_date: "2022-09-28T16:31:00.000Z",
+    created_at: "2022-10-25T05:35:37.374Z",
+    updated_at: "2022-10-25T05:35:37.374Z",
+  });
   const [token, setToken] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const userData = JSON.parse(sessionStorage.getItem("user"));
@@ -44,109 +55,80 @@ const Alltask = () => {
   // console.log(data);
   const navigate = useNavigate();
 
-  // const validate = (values) => {
-  //   const errors = {};
+  const validate = (values) => {
+    const errors = {};
 
-  //   if (!values.email) {
-  //     errors.email = "Please fill out this field";
-  //   } else if (
-  //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-  //   ) {
-  //     errors.email = "Invalid email address";
-  //   }
+    if (!values.title) {
+      errors.title = "Please fill out this field";
+    }
 
-  //   if (!values.password) {
-  //     errors.password = "Please fill out this field";
-  //   } else if (values.password.length < 8) {
-  //     errors.password = "Password must be 8 characters or more";
-  //   } else if (values.password === "12345678") {
-  //     errors.password = "Password must not be 12345678!!!";
-  //   }
+    if (!values.description) {
+      errors.description = "Please fill out this field";
+    }
 
-  //   return errors;
-  // };
+    return errors;
+  };
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     title: "",
-  //     description: "",
-  //     due_date
-  //   },
-  //   validate,
-  //   onSubmit: () => {
-  //     setTimeout(() => {
-  //       const url = "https://users-todoapp.herokuapp.com/api/v1/users/login";
-  //       fetch(url, {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(formik.values),
-  //       })
-  //         .then((response) => response.json())
-  //         .then((result) => {
-  //           console.log(result);
-  //           if (result.message === "User logged in successfully") {
-  //             toast.success(JSON.stringify("Login successful", null, 2), {
-  //               position: "top-right",
-  //               autoClose: 5000,
-  //               hideProgressBar: true,
-  //               closeOnClick: true,
-  //               pauseOnHover: true,
-  //               draggable: true,
-  //               progress: undefined,
-  //               theme: "colored",
-  //             });
-  //             const user = JSON.stringify(result);
-  //             sessionStorage.setItem("user", user);
-  //             setTimeout(() => {
-  //               navigate("/");
-  //             }, 1500);
-  //           } else if (result.message === "Incorrect Details") {
-  //             toast.error(
-  //               JSON.stringify("Email or password is incorrect", null, 2),
-  //               {
-  //                 position: "top-right",
-  //                 autoClose: 5000,
-  //                 hideProgressBar: true,
-  //                 closeOnClick: true,
-  //                 pauseOnHover: true,
-  //                 draggable: true,
-  //                 progress: undefined,
-  //                 theme: "colored",
-  //               }
-  //             );
-  //           } else {
-  //             toast.error(JSON.stringify("An error occured", null, 2), {
-  //               position: "top-right",
-  //               autoClose: 5000,
-  //               hideProgressBar: true,
-  //               closeOnClick: true,
-  //               pauseOnHover: true,
-  //               draggable: true,
-  //               progress: undefined,
-  //               theme: "colored",
-  //             });
-  //           }
-  //         })
-  //         .catch((err) => console.log(err));
-  //     }, 200);
-  //   },
-  // });
+  // setEdit();
 
-  // const handleEdit = (id) => {
-  //   const url = `https://users-todoapp.herokuapp.com/api/v1/todos/${id}`;
-  //   fetch(url, {
-  //     method: "PATCH",
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     body: JSON.stringify({formik.values}),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => console.log(result))
-  //     .catch((err) => console.log(err));
-  // };
+  const formik = useFormik({
+    initialValues: {
+      title: edit.title,
+      description: edit.description,
+      due_date: edit.due_date,
+    },
+    validate,
+    onSubmit: (objid) => {
+      const id = objid;
+      setTimeout((id) => {
+        const url = `https://users-todoapp.herokuapp.com/api/v1/todos/${id}`;
+        fetch(url, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formik.values),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            if (result.message === "User logged in successfully") {
+            } else if (result.message === "Incorrect Details") {
+            } else {
+              setEdit(result);
+            }
+          })
+          .catch((err) => console.log(err));
+      }, 200);
+    },
+  });
+
+  const handleEdit = (id) => {
+    const url = `https://users-todoapp.herokuapp.com/api/v1/todos/${id}`;
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        // console.log(result);
+        if (result.message === "Todo Not Found") {
+          console.log("Todo Not Found");
+        } else {
+          setEdit(result);
+          console.log(result);
+          setTimeout(() => {
+            console.log(edit);
+            // setShowModal(true);
+          }, 3000);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // console.log(edit);
 
   const handleDelete = (id) => {
     const url = `https://users-todoapp.herokuapp.com/api/v1/todos/${id}`;
@@ -175,7 +157,7 @@ const Alltask = () => {
               src={EditImage}
               alt="edit-icon"
               onClick={() => {
-                handleDelete(data.id);
+                handleEdit(data.id);
               }}
             />
           </div>
@@ -192,6 +174,54 @@ const Alltask = () => {
       </div>
     );
   });
+
+  const EditModal = (
+    <div className="section-edit">
+      <div className="edit">
+        <form>
+          <div className="form-group">
+            <input
+              type="text"
+              name="title"
+              placeholder="Add title"
+              onChange={formik.handleChange}
+              value={formik.values.title}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.title && formik.errors.title ? (
+              <div className="error">{formik.errors.title}</div>
+            ) : null}
+          </div>
+          <div className="form-group">
+            <textarea
+              type="text"
+              name="description"
+              placeholder="Description"
+              onChange={formik.handleChange}
+              value={formik.values.description}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.description && formik.errors.description ? (
+              <div className="error">{formik.errors.description}</div>
+            ) : null}
+          </div>
+          <div className="form-group">
+            <input
+              type="datetime-local"
+              name="datetime"
+              // onChange={formik.handleChange}
+              // value={formik.values.due_date}
+              // onBlur={formik.handleBlur}
+            />
+          </div>
+
+          <button className="btn" type="submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 
   // const handleClick = () => {
   //   const url = "https://users-todoapp.herokuapp.com/api/v1/todos";
@@ -256,6 +286,7 @@ const Alltask = () => {
           <Add />
         </Link>
       </div>
+      <div>{showModal && EditModal}</div>
     </div>
   );
 };

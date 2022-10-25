@@ -17,6 +17,7 @@
     background-color: #FFFFFF;
 }
 
+
 .tasklist .section-top img {
     width: 12px;
     height: 20px;
@@ -94,4 +95,104 @@
     cursor: pointer;
     width: 20px;
     height: 23px;
+}
+
+.section-edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 100px 20px;
+}
+
+.edit {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.edit form {
+    padding: 10px 0px;
+}
+
+.edit .form-group {
+    margin-bottom: 30px;
+}
+
+.edit input,
+.edit textarea {
+    width: 100%;
+    height: 40px;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #110eaf;
+    border: 1px solid rgba(17, 14, 175, 0.4);
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: -2px 4px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.edit textarea {
+    height: 150px;
+    padding: 10px 24px;
+    resize: none;
+    /* vertical-align: top; */
+}
+
+.edit textarea:focus {
+    outline: none;
+}
+
+.edit input:focus {
+    border: 1.5px solid #110eaf;
+}
+
+.edit input:focus {
+    outline: none;
+}
+
+.edit ::placeholder {
+    color: rgba(17, 14, 175, 0.69);
+}
+
+.edit .btn {
+    width: 100px;
+    margin-right: 0;
+    height: 50px;
+    padding: 10px 24px;
+    background-color: #110eaf;
+    color: #ffffff;
+    border-radius: 5px;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: all 0.5s ease;
+    margin-top: 20px;
+}
+
+.edit .btn:hover {
+    background-color: #ccc;
+    color: #110eaf;
+    border: 1px solid #110eaf;
+}
+
+.edit .btn:active {
+    transform: scale(0.95);
+}
+
+.edit .error {
+    color: red;
+    font-size: 0.80rem;
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    margin-top: 5px;
 }
