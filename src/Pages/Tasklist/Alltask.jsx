@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Tasklist.css";
 import AllImage from "../../assets/svgs/allblue.svg";
 import DeleteImage from "../../assets/svgs/delete.svg";
-import EditImage from "../../assets/svgs/edit.svg";
+// import EditImage from "../../assets/svgs/edit.svg";
 import BackImage from "../../assets/svgs/right.svg";
 import DotImage from "../../assets/svgs/dotmenu.svg";
 import { Link, useNavigate } from "react-router-dom";
@@ -154,7 +154,7 @@ const Alltask = () => {
         <div className="change">
           <div>
             <img
-              src={EditImage}
+              src={DeleteImage}
               alt="edit-icon"
               onClick={() => {
                 handleEdit(data.id);
