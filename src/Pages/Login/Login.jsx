@@ -3,7 +3,7 @@ import "./Login.css";
 import RegisterImage from "../../assets/images/register.png";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -98,11 +98,30 @@ const Login = () => {
     },
   });
 
+  const handleClick = () => {
+    // console.log("hello");
+    // fetch("https://jsonplaceholder.typicode.com/todos/33", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     name: "John Doe",
+    //     email: "john@typicode.com",
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) => console.log(result))
+    //   .catch((err) => console.log(err));
+  };
+
   return (
     <div className="login">
       <div className="image-container">
         <img src={RegisterImage} alt="Group1-logo" />
       </div>
+      <button onClick={handleClick}>Click me</button>
+
       <div>
         <form onSubmit={formik.handleSubmit}>
           <div className="form-group">
